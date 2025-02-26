@@ -1,0 +1,13 @@
+.protected-pdf-block-editor {
+    margin: 20px 0;
+}
+
+.protected-pdf-block-editor .components-base-control {
+    margin-bottom: 15px;
+}
+
+.protected-pdf-block-editor .components-text-control__input,
+.protected-pdf-block-editor .components-select-control__input {
+    width: 100%;
+    max-width: 400px;
+} 
