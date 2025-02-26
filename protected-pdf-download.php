@@ -3,7 +3,7 @@
 Plugin Name: Protected PDF Download
 Description: パスワード付きPDFダウンロードリンクを追加
 Version: 1.0
-Author: Your Name
+Author: suhanyujie
 */
 
 // 防止直接访问
