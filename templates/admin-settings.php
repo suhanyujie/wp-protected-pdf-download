@@ -69,7 +69,7 @@ $pdfs = $pdf_model->get_all_pdfs();
                     <td><?php echo esc_html($pdf->downloads); ?></td>
                     <td><?php echo esc_html($pdf->created_at); ?></td>
                     <td>
-                        <button class="button edit-pdf" data-id="<?php echo esc_attr($pdf->id); ?>">編集</button>
+                        <button class="button edit-pdf" data-id="<?php echo esc_attr($pdf->id); ?>" data-password="<?php echo esc_attr($pdf->password); ?>" onclick="openEditDialog(this)">編集</button>
                         <button class="button delete-pdf" data-id="<?php echo esc_attr($pdf->id); ?>">削除</button>
                     </td>
                 </tr>
@@ -77,4 +77,33 @@ $pdfs = $pdf_model->get_all_pdfs();
             <?php endif; ?>
         </tbody>
     </table>
+</div>
+
+<!-- 在文件末尾添加编辑对话框 -->
+<div id="edit-pdf-dialog" class="pdf-edit-modal" style="display:none;">
+    <div class="pdf-edit-modal-content">
+        <h3>PDFファイルを編集</h3>
+        <form id="edit-pdf-form">
+            <input type="hidden" id="edit-pdf-id" name="pdf_id">
+            <table class="form-table">
+                <tr>
+                    <th><label for="edit-file-name">ファイル名</label></th>
+                    <td>
+                        <input type="text" id="edit-file-name" name="file_name" class="regular-text">
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="edit-password">新しいパスワード</label></th>
+                    <td>
+                        <input type="text" id="edit-password" name="password" class="regular-text">
+                        <p class="description">変更しない場合は空白のままにしてください</p>
+                    </td>
+                </tr>
+            </table>
+            <div class="button-group">
+                <button type="submit" class="button button-primary">保存</button>
+                <button type="button" class="button" onclick="closeEditDialog()">キャンセル</button>
+            </div>
+        </form>
+    </div>
 </div> 

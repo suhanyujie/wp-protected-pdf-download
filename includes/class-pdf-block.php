@@ -43,9 +43,9 @@ class PDF_Block {
         $pdfs = $this->pdf_model->get_all_pdfs();
         $pdf_list = array_map(function($pdf) {
             return array(
-                'id' => $pdf->id,
-                'url' => $pdf->file_url,
-                'filename' => $pdf->file_name
+                'id' => intval($pdf->id),
+                'filename' => $pdf->file_name,
+                'url' => $pdf->file_url
             );
         }, $pdfs);
 
@@ -64,7 +64,6 @@ class PDF_Block {
             return '';
         }
 
-        $attributes['pdfUrl'] = $pdf->file_url;
         $attributes['buttonText'] = !empty($attributes['buttonText']) ? $attributes['buttonText'] : $pdf->file_name;
 
         return PDF_Frontend::render_download_link($attributes);

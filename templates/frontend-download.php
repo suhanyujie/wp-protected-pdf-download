@@ -2,7 +2,8 @@
     <a href="#" class="pdf-download-link" 
        data-pdf-id="<?php echo esc_attr($attributes['pdfId']); ?>" 
        data-id="<?php echo esc_attr($unique_id); ?>">
-        <span><?php echo esc_html($attributes['buttonText']); ?></span>
+        <span class="dashicons dashicons-pdf"></span>
+        <span class="button-text"><?php echo esc_html($attributes['buttonText']); ?></span>
         <span class="dashicons dashicons-download"></span>
     </a>
 </div>

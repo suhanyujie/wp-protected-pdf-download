@@ -48,16 +48,26 @@
                 
                 if (pdfId) {
                     var selectedPdf = pdfBlockData.pdfList.find(function(pdf) {
+                        console.log('Comparing:', pdf.id, pdfId, typeof pdf.id, typeof pdfId);
                         return pdf.id === pdfId;
                     });
+                    
                     if (selectedPdf) {
-                        // 移除.pdf扩展名并限制长度
-                        var buttonText = selectedPdf.filename.replace(/\.pdf$/i, '');
-                        if (buttonText.length > 30) {
-                            buttonText = buttonText.substring(0, 27) + '...';
+                        // 移除.pdf扩展名
+                        var buttonText = selectedPdf.filename;
+                        var fileNameWithoutExt = buttonText.replace(/\.pdf$/i, '');
+                        
+                        // 如果文件名超过30个字符，则截断
+                        if (fileNameWithoutExt.length > 30) {
+                            fileNameWithoutExt = fileNameWithoutExt.substring(0, 27) + '...';
                         }
-                        setAttributes({ buttonText: buttonText });
+                        
+                        // 设置按钮文字
+                        setAttributes({ buttonText: fileNameWithoutExt });
                     }
+                } else {
+                    // 当没有选择PDF时，清空按钮文字
+                    setAttributes({ buttonText: '' });
                 }
             }
 
