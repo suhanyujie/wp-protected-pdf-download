@@ -1,9 +1,12 @@
 <?php
 /*
 Plugin Name: Protected PDF Download
+Plugin URI: https://github.com/suhanyujie/wp-protected-pdf-download
 Description: パスワード付きPDFダウンロードリンクを追加
 Version: 1.0
 Author: suhanyujie
+Author URI: https://github.com/suhanyujie
+Text Domain: https://github.com/suhanyujie/wp-protected-pdf-download
 */
 
 if (!defined('ABSPATH')) {
@@ -27,31 +30,31 @@ class Protected_PDF_Download {
     private static $instance = null;
     private $db_version = '1.0';
     private $table_name;
-    
+
     public static function get_instance() {
         if (null === self::$instance) {
             self::$instance = new self();
         }
         return self::$instance;
     }
-    
+
     public function __construct() {
         global $wpdb;
         $this->table_name = $wpdb->prefix . 'protected_pdfs';
         $this->init();
     }
-    
+
     private function init() {
         // 初始化各个组件
         new PDF_Admin();
         new PDF_Block();
         new PDF_Frontend();
         new PDF_Ajax();
-        
+
         // 激活钩子
         register_activation_hook(__FILE__, array($this, 'activate'));
     }
-    
+
     public function activate() {
         $this->create_tables();
         add_option('pdf_db_version', $this->db_version);
