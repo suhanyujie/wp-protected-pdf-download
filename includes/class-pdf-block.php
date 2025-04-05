@@ -14,12 +14,12 @@ class PDF_Block {
             array('wp-blocks', 'wp-element', 'wp-editor', 'wp-components')
         );
 
-        wp_register_style(
-            'protected-pdf-block-editor',
-            PDF_PLUGIN_URL . '/assets/css/pdf-block.css',
-            array(),
-            PDF_VERSION
-        );
+        // wp_register_style(
+        //     'protected-pdf-block-editor',
+        //     PDF_PLUGIN_URL . '/assets/css/pdf-block.css',
+        //     array(),
+        //     PDF_VERSION
+        // );
 
         $this->localize_block_data();
 
@@ -68,4 +68,4 @@ class PDF_Block {
 
         return PDF_Frontend::render_download_link($attributes);
     }
-} 
+}
