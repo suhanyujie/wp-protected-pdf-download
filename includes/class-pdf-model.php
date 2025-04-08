@@ -9,10 +9,10 @@ class PDF_Model {
 
     public function add_pdf($file_name, $file_url, $password) {
         global $wpdb;
-        
+
         // 使用 WordPress 的密码哈希函数
         $hashed_password = wp_hash_password($password);
-        
+
         return $wpdb->insert(
             $this->table_name,
             array(
@@ -80,7 +80,7 @@ class PDF_Model {
         if (!$pdf) {
             return false;
         }
-        
+
         return wp_check_password($password, $pdf->password);
     }
-} 
+}

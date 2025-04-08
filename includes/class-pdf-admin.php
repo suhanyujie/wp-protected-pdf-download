@@ -46,7 +46,6 @@ class PDF_Admin {
         wp_enqueue_style('dashicons');
         wp_enqueue_style('pdf-list', PDF_PLUGIN_URL . '/admin/css/pdf-list.css', array(), PDF_VERSION);
         wp_enqueue_style('pdf-modal', PDF_PLUGIN_URL . '/admin/css/pdf-modal.css', array(), PDF_VERSION);
-        wp_enqueue_style('pdf-form', PDF_PLUGIN_URL . '/admin/css/pdf-form.css', array(), PDF_VERSION);
 
         // 加载JS
         wp_enqueue_script('pdf-list', PDF_PLUGIN_URL . '/admin/js/pdf-list.js', array('jquery'), PDF_VERSION, true);
@@ -62,4 +61,4 @@ class PDF_Admin {
     public function render_settings_page() {
         include PDF_PLUGIN_PATH . 'admin/partials/page-settings.php';
     }
-} 
+}
