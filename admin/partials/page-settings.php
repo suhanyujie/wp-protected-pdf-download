@@ -4,8 +4,8 @@ if (!defined('ABSPATH')) {
 }
 ?>
 <div class="wrap">
-    <h1>PDF ダウンロードパスワード管理</h1>
-    
+    <h1>パスワードつける PDF ダウンロード管理</h1>
+
     <?php
     // 显示上传成功消息
     if (isset($_GET['uploaded']) && $_GET['uploaded'] === '1') {
@@ -21,4 +21,4 @@ if (!defined('ABSPATH')) {
 
     <!-- 编辑模态框 -->
     <?php $this->edit_handler->render_edit_modal(); ?>
-</div> 
+</div>
